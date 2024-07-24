@@ -9,7 +9,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/messages_db
+      - MONGO_URI=mongodb://mongo:27017
     volumes:
       - .:/app
 

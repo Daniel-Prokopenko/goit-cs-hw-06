@@ -9,7 +9,7 @@ from multiprocessing import Process
 import ast
 
 
-client = MongoClient('localhost', 27017)
+client = MongoClient("mongodb://mongodb:27017")
 db = client['messages_db']
 collection = db['messages']
 
@@ -32,7 +32,7 @@ class HttpHandler(BaseHTTPRequestHandler):
         pr_url = urllib.parse.urlparse(self.path)
         if pr_url.path == '/':
             self.send_html_file('index.html')
-        elif pr_url.path == '/message':
+        elif pr_url.path == '/message.html':
             self.send_html_file('message.html')
         elif pr_url.path.startswith('/static/'):
             self.send_static_file(pr_url.path[1:])
